@@ -4,32 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job search </title>
+    <title>Job Search</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-image: url('picture.jpg'); /* Replace with your local image file name */
+            background-size: cover;
+            background-position: center;
+            color: grey; 
+        }
+
+        .navbar-nav .nav-link.active {
+            background-color: #f8f9fa; /* Light background color for active link */
+            color: #007bff; /* Text color for active link */
+            font-weight: bold; /* Bold text for active link */
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff; /* Default text color for inactive links */
         }
 
         .announcement {
-            background-color: #1bb1a9;
+            background-color: rgba(27, 177, 169, 0.8);
             color: #ecfa26;
             padding: 15px;
             border-left: 5px solid #44c1e0;
             margin-bottom: 20px;
         }
 
-        .job-categories table {
-            width: 100%;
-        }
-
         .footer {
-            background-color: #3025c7;
+            background-color: rgba(48, 37, 199, 0.8);
             padding: 20px;
             text-align: center;
             font-size: 14px;
             color: #f3e415;
             margin-top: 40px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 24px;
+        }
+
+        .how-do-i a {
+            color: blue; 
+            text-decoration: none;
+        }
+
+        .how-do-i a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -38,7 +63,7 @@
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">job search</a>
+            <a class="navbar-brand" href="index.html">Job Search</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
@@ -46,6 +71,7 @@
                     <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
                     <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
                     <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacts.html">POST</a></li>
                 </ul>
             </div>
         </div>
@@ -69,89 +95,112 @@
     <div class="container">
         <h2>Recruitment Portal User Guide</h2>
         <ul>
-            <li><a href="#">Mwongozo wa Mabadiliko Katika Matumizi ya Mfumo wa Maombi ya Kazi</a></li>
-            <li><a href="#">Recruitment Portal User Guide v2.1</a></li>
-            <li>Call Center: 0752133494, +255757303007|| Email: poper@jobsearch.co.tz, malalamiko@jobsearch.go.tz</li>
+            <li>Call Center: 0752133494, +255757303007 || Email: poper@jobsearch.co.tz, Complains@jobsearch.go.tz</li>
         </ul>
     </div>
 
-    <!-- Job Posts by Categories -->
+    <!-- Job Posts by Categories 
     <div class="container mt-4">
         <h2>Job Posts By Categories</h2>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Category</th>
-                    <th>Post</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Accounting and Auditing</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td>Banking, Economics and Financial Services</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td>Physical & Natural Sciences</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>Creative and Design</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td>CSE</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>Education and Training</td>
-                    <td>7</td>
-                </tr>
-                <tr>
-                    <td>Engineering and Construction</td>
-                    <td>22</td>
-                </tr>
-                <tr>
-                    <td>Environmental Sciences and Geography</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>Farming and Livestock</td>
-                    <td>7</td>
-                </tr>
-                <tr>
-                    <td>IT and Telecoms</td>
-                    <td>12</td>
-                </tr>
-                <tr>
-                    <td>Transport and Logistics</td>
-                    <td>9</td>
-                </tr>
-                <!-- Add more categories as needed -->
-            </tbody>
-        </table>
+        <ul>
+            <li>Accounting and Auditing: 2</li>
+            <li>Banking, Economics and Financial Services: 2</li>
+            <li>Physical & Natural Sciences: 1</li>
+            <li>Creative and Design: 2</li>
+            <li>CSE: 0</li>
+            <li>Education and Training: 7</li>
+            <li>Engineering and Construction: 22</li>
+            <li>Environmental Sciences and Geography: 1</li>
+            <li>Farming and Livestock: 7</li>
+            <li>IT and Telecoms: 12</li>
+            <li>Transport and Logistics: 9</li>
+            Add more categories as needed
+        </ul>
+    </div> -->
+
+
+    <!-- PASTE -->
+
+    <div class="card">
+    <div class="card-header">Job Posts By Categories..</div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="mylist">
+                                <li><a class="btn-link" href="feedback.html" title="Jobs by Category - Accounting and Auditing">Accounting and Auditing (2)</a> </li>
+               
+                                <li><a class="btn-link" href="#" title="Jobs by Category - Banking, Economics and Financial Services">Banking, Economics and Financial Services (0)</a></li>
+                
+                                <li><a class="btn-link" href="#" title="Jobs by Category - Physical & Natural Sciences">Physical & Natural Sciences (0)</a></li>
+                
+                                    <li><a class="btn-link" href="https://portal.ajira.go.tz/advert/index/4" title="Jobs by Category - Creative and Design">Creative and Design (2)</a> </li>
+               
+                                    <li><a class="btn-link" href="#" title="Jobs by Category - CSE">CSE (0)</a></li>
+                
+                                    <li><a class="btn-link" href="https://portal.ajira.go.tz/advert/index/6" title="Jobs by Category - Education and Training">Education and Training (7)</a> </li>
+               
+                                    <li><a class="btn-link" href="https://portal.ajira.go.tz/advert/index/7" title="Jobs by Category - Engineering and Construction">Engineering and Construction (19)</a> </li>
+               
+                                    <li><a class="btn-link" href="https://portal.ajira.go.tz/advert/index/8" title="Jobs by Category - Environmental Sciences and Geography">Environmental Sciences and Geography (1)</a> </li>
+               
+                                    <li><a class="btn-link" href="https://portal.ajira.go.tz/advert/index/9" title="Jobs by Category - Farming and Livestock">Farming and Livestock (7)</a> </li>
+               
+                                    <li><a class="btn-link" href="https://portal.ajira.go.tz/advert/index/10" title="Jobs by Category - Healthcare and Pharmaceutical">Healthcare and Pharmaceutical (3)</a> </li>
+                
+                </ul></div>
+            <div class='col-md-6'><ul class='mylist'>                    
+                    <li><a class="btn-link" href="https://portal.ajira.go.tz/advert/index/13" title="Jobs by Category - IT and Telecoms">IT and Telecoms (5)</a> </li>
+               
+                                    <li><a class="btn-link" href="https://portal.ajira.go.tz/advert/index/14" title="Jobs by Category - Legal">Legal (2)</a> </li>
+               
+                                    <li><a class="btn-link" href="https://portal.ajira.go.tz/advert/index/15" title="Jobs by Category - Linguistics">Linguistics (1)</a> </li>
+               
+                                    <li><a class="btn-link" href="#" title="Jobs by Category - Manufacturing">Manufacturing (0)</a></li>
+                
+                                    <li><a class="btn-link" href="#" title="Jobs by Category - Marketing,Media and Brand">Marketing,Media and Brand (0)</a></li>
+                
+                                    <li><a class="btn-link" href="https://portal.ajira.go.tz/advert/index/37" title="Jobs by Category - Procurement & Logistic Management">Procurement & Logistic Management (1)</a> </li>
+               
+                                    <li><a class="btn-link" href="#" title="Jobs by Category - Project, Planning and Policy Management">Project, Planning and Policy Management (0)</a></li>
+                
+                                    <li><a class="btn-link" href="#" title="Jobs by Category - Religious Studies">Religious Studies (0)</a></li>
+                
+                                    <li><a class="btn-link" href="#" title="Jobs by Category - Research,Science and Biotech">Research,Science and Biotech (0)</a></li>
+                
+                                    <li><a class="btn-link" href="#" title="Jobs by Category - Security">Security (0)</a></li>
+               
+                </ul></div>
+            
+        </div>
     </div>
+</div>
+
+    <!-- PASTE -->   
 
     <!-- How Do I Section -->
-    <div class="container mt-4">
+    <div class="container mt-4 how-do-i">
         <h2>How Do I</h2>
         <ul>
-            <li>Apply for Jobs</li>
-            <li>Subscribe to Job Alerts</li>
-            <li>Write a good CV</li>
-            <li>Write a Cover Letter</li>
+            <li><a href="apply_jobs.html">Apply for Jobs</a></li>
+            <li><a href="subscribe_alerts.html">Subscribe to Job Alerts</a></li>
+            <li><a href="write_cv.html">Write a good CV</a></li>
+            <li><a href="write_cover_letter.html">Write a Cover Letter</a></li>
         </ul>
     </div>
 
-    <!-- Footer  copyright -->
+    <!-- Footer -->
     <div class="footer">
-        copyright&copy; Five as one,All of them have been saved.
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>copyright&copy; Five as one, All of them have been saved.</p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
