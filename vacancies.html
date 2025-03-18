@@ -4,22 +4,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vacancies - job search</title>
+    <title>Vacancies - Job Search</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #d3d5d6;
         }
+
+        .navbar-nav .nav-link.active {
+            background-color: #f8f9fa;
+            color: #007bff;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff;
+        }
+        .navbar .navbar-brand img {
+            width: 800px; /* Adjust the size of the logo */
+            height: 80px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }.navbar .navbar-brand img {
+            transform:scale(1.05);
+        }
+
 
         .vacancies-header {
             text-align: center;
             margin-top: 20px;
         }
 
-        .vacancy-table {
-            margin: 20px auto;
-            max-width: 90%;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        .table-container {
+            margin: 20px;
+        }
+
+        th,
+        td {
+            text-align: center;
+            padding: 12px;
+        }
+
+        th {
+            background-color: #2519c7;
+            color: white;
+        }
+
+        td {
+            background-color: #ffffff;
+        }
+
+        .hidden-details {
+            display: none;
+        }
+
+        .post-name {
+            color: #007bff;
+            cursor: pointer;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .post-name:hover {
+            background-color: #e6f7ff;
+            /* Light blue highlight on hover */
+            border-radius: 5px;
+        }
+
+        .details-column {
+            display: none;
+        }
+
+        .details-column.visible {
+            display: table-cell;
+        }
+
+        /* Hide column headers for hidden details */
+        .details-header {
+            display: none;
+        }
+
+        .details-header.visible {
+            display: table-cell;
         }
     </style>
 </head>
@@ -28,84 +96,103 @@
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">Job Search</a>
+            <a class="navbar-brand" href="#">
+                <img src="pwk.png" alt="Logo"> 
+            </a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="vacancies.html">Vacancies</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-                    <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
-                    <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="vacancies.html">Vacancies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Logout</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <!-- Vacancies Section -->
-    <div class="container">
-        <h1 class="vacancies-header">Available Job Vacancies</h1>
-        <table class="table table-striped table-bordered vacancy-table">
-            <thead class="table-dark">
-                <tr>
-                    <th>Category</th>
-                    <th>Post</th>
-                </tr>
-            </thead>
-            <tbody id="vacancies-table-body">
-                <!-- Dynamic Rows Will Be Inserted Here -->
-            </tbody>
-        </table>
+    <div class="container mt-5">
+        <h1 class="vacancies-header">Job Vacancies</h1>
+        <div class="table-container">
+            <table class="table table-striped table-bordered table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th>Post Name</th>
+                        <th>Post Number</th>
+                        <th class="details-header">Employer</th>
+                        <th class="details-header">Application Start</th>
+                        <th class="details-header">Application End</th>
+                        <th class="details-header">Duties</th>
+                        <th class="details-header">Qualifications</th>
+                        <th class="details-header">Salary</th>
+                    </tr>
+                </thead>
+                <tbody id="jobs-table-body">
+                    <!-- Job postings will be dynamically inserted here -->
+                </tbody>
+            </table>
+            <button class="btn btn-primary" onclick="window.location.href='application.html';">
+                Apply
+            </button>
+           
+            
+        </div>
     </div>
-
     <script>
-        // Data: Job Vacancies by Category
-        const jobVacancies = [
-            { category: "Accounting and Auditing", vacancies: 2 },
-            { category: "Banking, Economics and Financial Services", vacancies: 2 },
-            { category: "Physical & Natural Sciences", vacancies: 1 },
-            { category: "Creative and Design", vacancies: 2 },
-            { category: "CSE", vacancies: 0 },
-            { category: "Education and Training", vacancies: 7 },
-            { category: "Engineering and Construction", vacancies: 22 },
-            { category: "Environmental Sciences and Geography", vacancies: 1 },
-            { category: "Farming and Livestock", vacancies: 7 },
-            { category: "Healthcare and Pharmaceutical", vacancies: 3 },
-            { category: "HR & Administration", vacancies: 13 },
-            { category: "International Relations", vacancies: 1 },
-            { category: "IT and Telecoms", vacancies: 12 },
-            { category: "Legal", vacancies: 3 },
-            { category: "Linguistics", vacancies: 1 },
-            { category: "Manufacturing", vacancies: 0 },
-            { category: "Marketing, Media and Brand", vacancies: 3 },
-            { category: "Procurement & Logistic Management", vacancies: 3 },
-            { category: "Project, Planning and Policy Management", vacancies: 0 },
-            { category: "Religious Studies", vacancies: 0 },
-            { category: "Research, Science and Biotech", vacancies: 0 },
-            { category: "Security", vacancies: 0 },
-            { category: "Sociology, Political Science, Community and Social Development", vacancies: 2 },
-            { category: "Statistics and Mathematics", vacancies: 2 },
-            { category: "Taxation and Social Protection", vacancies: 2 },
-            { category: "Tourism and Travel", vacancies: 0 },
-            { category: "Trades and Services", vacancies: 0 },
-            { category: "Transport and Logistics", vacancies: 9 },
-            { category: "ACSE", vacancies: 2 },
-            { category: "Climate Change", vacancies: 0 },
-            { category: "Driver's", vacancies: 2 },
-            { category: "Land Management", vacancies: 0 },
-            { category: "Water, Mining and Natural Resources", vacancies: 2 },
-            { category: "Agricultural and Natural Resources", vacancies: 0 }
-        ];
-
-        // Populate Vacancies Table
-        const tableBody = document.getElementById('vacancies-table-body');
-        jobVacancies.forEach(job => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${job.category}</td>
-                <td>${job.vacancies}</td>
-            `;
-            tableBody.appendChild(row);
-        });
+        // Fetch jobs from the server
+        fetch('/jobs')
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.getElementById('jobs-table-body');
+                data.forEach((job, index) => {
+                    // Create a row with basic information
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td class="post-name">${job.post_name}</td>
+                        <td>${job.post_number}</td>
+                        <td class="details-column">${job.employer}</td>
+                        <td class="details-column">${job.application_start}</td>
+                        <td class="details-column">${job.application_end}</td>
+                        <td class="details-column">${job.duties}</td>
+                        <td class="details-column">${job.qualifications}</td>
+                        <td class="details-column">${job.salary}</td>
+                    `;
+    
+                    // Append the row to the table body
+                    tableBody.appendChild(row);
+    
+                    // Add a row for the Apply button (hidden by default)
+                    const applyRow = document.createElement('tr');
+                    applyRow.innerHTML = `
+                        <td colspan="8" class="apply-row" style="text-align: center; display: none;">
+                            <button class="btn btn-primary">Apply</button>
+                        </td>
+                    `;
+                    tableBody.appendChild(applyRow);
+    
+                    // Add click event to toggle the visibility of the additional details and Apply button
+                    const postNameCell = row.querySelector('.post-name');
+                    const detailCells = row.querySelectorAll('.details-column');
+                    const headerCells = document.querySelectorAll('.details-header');
+                    const applyButtonRow = applyRow;
+    
+                    postNameCell.addEventListener('click', () => {
+                        // Toggle visibility of the details columns
+                        detailCells.forEach(cell => {
+                            cell.classList.toggle('visible');
+                        });
+    
+                        // Toggle visibility of the column headers
+                        headerCells.forEach(header => {
+                            header.classList.toggle('visible');
+                        });
+    
+                        // Toggle visibility of the Apply button row
+                        const isVisible = detailCells[0].classList.contains('visible');
+                        applyButtonRow.style.display = isVisible ? 'table-row' : 'none';
+                    });
+                });
+            })
+            .catch(error => console.error('Error fetching jobs:', error));
     </script>
+    
 </body>
 
 </html>

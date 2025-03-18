@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #0056b3;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="file"],
+        textarea {
+            padding: 10px;
+            margin-top: 5px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button[type="submit"] {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            padding: 12px;
+            margin-top: 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #004494;
+        }
+
+        .navbar-nav .nav-link.active {
+            background-color: #f8f9fa;
+            color: #007bff;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .navbar {
+            background-color: #007bff;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .navbar-brand {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        /* Navigation Bar */
+        .navbar-nav .nav-link.active {
+            background-color: #f8f9fa;
+            color: #007bff;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .navbar {
+            background-color: #007bff;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .navbar-brand {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+     
+        }
+
+        .navbar .navbar-nav {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar .navbar-nav li {
+            margin-right: 20px;
+        }
+
+        .navbar .navbar-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        .navbar .navbar-nav a:hover {
+            background-color: #0056b3;
+            border-radius: 5px;
+        }
+
+        .navbar .navbar-brand img {
+            width: 800px; /* Adjust the size of the logo */
+            height: 80px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .navbar .navbar-brand img {
+            transform:scale(1.05);
+        }
+
+        .table th,
+        .table td {
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        .table {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="pwk.png" alt="Logo">
+            </a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="vacancies.html">Vacancies</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="application.html">Application</a></li>
+                    <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Job Application Form</h1>
+        <form id="applicationForm" action="/apply" method="POST" enctype="multipart/form-data">
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+            <label for="position">Position Applied For:</label>
+            <input type="text" id="position" name="position" placeholder="Enter the position" required>
+
+            <label for="education">Educational Background:</label>
+            <textarea id="education" name="education" rows="4" placeholder="Summarize your education"
+                required></textarea>
+
+            <label for="experience">Work Experience:</label>
+            <textarea id="experience" name="experience" rows="4" placeholder="Summarize your work experience"
+                required></textarea>
+
+            <label for="skills">Skills:</label>
+            <textarea id="skills" name="skills" rows="4" placeholder="List your skills" required></textarea>
+
+            <label for="resume">Upload Resume (PDF only):</label>
+            <input type="file" id="resume" name="resume" accept=".pdf" required>
+
+            <button type="submit">Submit Application</button>
+        </form>
+
+        <!-- Table to display application data -->
+        <div id="applicationDetails" style="display:none;">
+            <h2>Application Details</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody id="applicationTableBody">
+                    <!-- Dynamic content will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("applicationForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const form = new FormData(this);
+
+            fetch("/apply", {
+                method: "POST",
+                body: form
+            })
+                .then(response => response.text())
+                .then(data => {
+                    if (data === 'Application submitted successfully! Check your email for confirmation.') {
+                        // Hide the form and show the table with application details
+                        document.querySelector("form").style.display = "none";
+                        document.getElementById("applicationDetails").style.display = "block";
+
+                        // Insert application data into the table
+                        const tableBody = document.getElementById("applicationTableBody");
+                        const applicationData = {
+                            "Full Name": document.getElementById("fullName").value,
+                            "Email": document.getElementById("email").value,
+                            "Phone": document.getElementById("phone").value,
+                            "Position Applied For": document.getElementById("position").value,
+                            "Educational Background": document.getElementById("education").value,
+                            "Work Experience": document.getElementById("experience").value,
+                            "Skills": document.getElementById("skills").value,
+                            "Resume": document.getElementById("resume").files[0].name
+                        };
+
+                        for (const key in applicationData) {
+                            const row = document.createElement("tr");
+                            row.innerHTML = `<td>${key}</td><td>${applicationData[key]}</td>`;
+                            tableBody.appendChild(row);
+                        }
+                    } else {
+                        alert('Submission failed. Please try again.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('There was an error with your submission.');
+                });
+        });
+    </script>
+</body>
+
+</html>
