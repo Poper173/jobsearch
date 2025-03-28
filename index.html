@@ -1,259 +1,500 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Job Search</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f0f8ff;
-            color: #0d98ba;
-        }
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f0f8ff;
+        color: #0d98ba;
+      }
 
-        /* Navigation Bar */
-        .navbar-nav .nav-link.active {
-            background-color: #f8f9fa;
-            color: #007bff;
-            font-weight: bold;
-            border-radius: 5px;
-        }
+      .navbar-nav .nav-link.active {
+        background-color: #f8f9fa;
+        color: #007bff;
+        font-weight: bold;
+        border-radius: 5px;
+      }
 
-        .navbar {
-            background-color: #007bff;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      .navbar {
+        background-color: #007bff;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
 
-        .navbar .navbar-brand {
-            color: white;
-            font-size: 24px;
-            text-decoration: none;
-     
-        }
+      .navbar .navbar-brand {
+        color: white;
+        font-size: 24px;
+        text-decoration: none;
+      }
 
+      .navbar .navbar-nav {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      .navbar .navbar-nav li {
+        margin-right: 20px;
+      }
+
+      .navbar .navbar-nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        padding: 10px;
+      }
+
+      .navbar .navbar-nav a:hover {
+        background-color: #0056b3;
+        border-radius: 5px;
+      }
+
+      .navbar .navbar-brand img {
+        width: 800px;
+        height: 80px;
+        object-fit: cover;
+        transition: transform 0.3s;
+        margin-left: 20px;
+      }
+
+      .navbar .navbar-brand img {
+        transform: scale(1.05);
+      }
+
+      .card {
+        margin-bottom: 20px;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: none;
+        border-radius: 10px;
+      }
+
+      .hero {
+        text-align: center;
+        padding: 60px 20px;
+        color: white;
+        background: linear-gradient(to right, #6a11cb, #2575fc);
+        border-radius: 10px;
+      }
+
+      .hero h1 {
+        font-weight: 600;
+      }
+
+      .social-icons a {
+        color: #5fdd54;
+        margin: 0 10px;
+        font-size: 24px;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      .social-icons a:hover {
+        color: #f3e415;
+        transform: scale(1.1);
+      }
+
+      .footer {
+        background-color: #1644d8;
+        padding: 20px;
+        text-align: center;
+        font-size: 14px;
+        color: #f8f9fa;
+      }
+
+      .footer p {
+        margin: 0;
+      }
+
+      .job-item {
+        border-bottom: 1px solid #e0e0e0;
+        padding: 15px 0;
+      }
+
+      .job-item h3 {
+        margin: 0 0 10px;
+      }
+
+      .job-item:last-child {
+        border-bottom: none;
+      }
+
+      .btn {
+        transition: 0.3s;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .d-flex img {
+        transition: transform 0.3s;
+      }
+
+      .d-flex img:hover {
+        transform: scale(1.2);
+      }
+    </style>
+    <style>
+      /* General Styles */
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f0f8ff;
+        color: #0d98ba;
+        margin: 0;
+        padding: 0;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Navbar Styles */
+      .navbar {
+        background-color: #007bff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar .navbar-brand {
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .navbar .navbar-brand img {
+        max-width: 150px;
+        height: auto;
+        transition: transform 0.3s;
+      }
+
+      .navbar .navbar-brand img:hover {
+        transform: scale(1.1);
+      }
+
+      .navbar .navbar-nav {
+        display: flex;
+        align-items: center;
+      }
+
+      .navbar .navbar-nav .nav-link {
+        color: white;
+        font-size: 16px;
+        padding: 10px 15px;
+        transition: background-color 0.3s;
+      }
+
+      .navbar .navbar-nav .nav-link:hover {
+        background-color: #0056b3;
+        border-radius: 5px;
+      }
+
+      .navbar .navbar-nav .nav-link.active {
+        background-color: #f8f9fa;
+        color: #007bff;
+        font-weight: bold;
+        border-radius: 5px;
+      }
+
+      /* Hero Section */
+      .hero {
+        text-align: center;
+        padding: 60px 20px;
+        color: white;
+        background: linear-gradient(to right, #6a11cb, #2575fc);
+        border-radius: 10px;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+        font-weight: 600;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin: 20px 0;
+      }
+
+      .hero .btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
+
+      /* Card Styles */
+      .card {
+        margin-bottom: 20px;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: none;
+        border-radius: 10px;
+      }
+
+      .card h2 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+
+      /* Categories Section */
+      .d-flex {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .d-flex .text-center {
+        text-align: center;
+      }
+
+      .d-flex img {
+        width: 80px;
+        height: 80px;
+        transition: transform 0.3s;
+      }
+
+      .d-flex img:hover {
+        transform: scale(1.1);
+      }
+
+      /* Job Listings */
+      .job-item {
+        border-bottom: 1px solid #e0e0e0;
+        padding: 15px 0;
+      }
+
+      .job-item h3 {
+        margin: 0 0 10px;
+        font-size: 1.2rem;
+      }
+
+      .job-item:last-child {
+        border-bottom: none;
+      }
+
+      /* Social Icons */
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .social-icons a {
+        color: #5fdd54;
+        font-size: 1.5rem;
+        transition:
+          transform 0.3s,
+          color 0.3s;
+      }
+
+      .social-icons a:hover {
+        color: #f3e415;
+        transform: scale(1.2);
+      }
+
+      /* Footer */
+      .footer {
+        background-color: #1644d8;
+        padding: 20px;
+        text-align: center;
+        font-size: 14px;
+        color: #f8f9fa;
+      }
+
+      .footer p {
+        margin: 0;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 768px) {
         .navbar .navbar-nav {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        .navbar .navbar-nav li {
-            margin-right: 20px;
-        }
-
-        .navbar .navbar-nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            padding: 10px;
-        }
-
-        .navbar .navbar-nav a:hover {
-            background-color: #0056b3;
-            border-radius: 5px;
-        }
-
-        .navbar .navbar-brand img {
-            width: 800px; /* Adjust the size of the logo */
-            height: 80px;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-        
-        .navbar .navbar-brand img {
-            transform:scale(1.05);
-        }
-
-        .card {
-            margin-bottom: 20px;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border: none;
-            border-radius: 10px;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 60px 20px;
-            color: white;
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            border-radius: 10px;
+          flex-direction: column;
+          align-items: center;
         }
 
         .hero h1 {
-            font-weight: 600;
+          font-size: 2rem;
         }
 
-        .social-icons a {
-            color: #5fdd54;
-            margin: 0 10px;
-            font-size: 24px;
-            text-decoration: none;
-            transition: 0.3s;
+        .hero p {
+          font-size: 1rem;
         }
 
-        .social-icons a:hover {
-            color: #f3e415;
-            transform: scale(1.1);
+        .d-flex {
+          gap: 10px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero h1 {
+          font-size: 1.5rem;
         }
 
-        .footer {
-            background-color: #1644d8;
-            padding: 20px;
-            text-align: center;
-            font-size: 14px;
-            color: #f8f9fa;
-        }
-
-        .footer p {
-            margin: 0;
-        }
-
-        .job-item {
-            border-bottom: 1px solid #e0e0e0;
-            padding: 15px 0;
-        }
-
-        .job-item h3 {
-            margin: 0 0 10px;
-        }
-
-        .job-item:last-child {
-            border-bottom: none;
+        .hero p {
+          font-size: 0.9rem;
         }
 
         .btn {
-            transition: 0.3s;
+          font-size: 0.9rem;
+          padding: 8px 16px;
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        .navbar .navbar-brand img {
+          max-width: 120px;
         }
-
-        .d-flex img {
-            transition: transform 0.3s;
-        }
-
-        .d-flex img:hover {
-            transform: scale(1.2);
-        }
-
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="pwk.png" alt="Logo"> 
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-                </ul>
-            </div>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="pwk.png" alt="Logo" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Login</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
     <div class="container mt-4">
-        <!-- Hero Section -->
-        <div class="card">
-            <div class="card-body hero">
-                <h1>Welcome to Job Search</h1>
-                <p>Your gateway to exciting career opportunities!</p>
-                <button class="btn btn-primary btn-lg" onclick="window.location.href='login.html';">Get
-                    Started</button>
-            </div>
+      <!-- Hero Section -->
+      <div class="card">
+        <div class="card-body hero">
+          <h1>Welcome to Job Search</h1>
+          <p>Your gateway to exciting career opportunities!</p>
+          <button
+            class="btn btn-primary btn-lg"
+            onclick="window.location.href='login.html';"
+          >
+            Get Started
+          </button>
         </div>
+      </div>
 
-        <!-- Categories Section -->
-        <div class="card">
-            <div class="card-body">
-                <h2 class="text-center">Popular Job Categories</h2>
-                <div class="d-flex justify-content-around mt-4">
-                    <div class="text-center">
-                        <img src="composer.png" width="80" height="80" alt="IT">
-                        <p>IT/Tech</p>
-                    </div>
-                    <div class="text-center">
-                        <img src="pona.png" width="80" height="80" alt="Healthcare">
-                        <p>Healthcare</p>
-                    </div>
-                    <div class="text-center">
-                        <img src="education.png" width="80" height="80" alt="Education">
-                        <p>Education</p>
-                    </div>
-                </div>
+      <!-- Categories Section -->
+      <div class="card">
+        <div class="card-body">
+          <h2 class="text-center">Popular Job Categories</h2>
+          <div class="d-flex justify-content-around mt-4">
+            <div class="text-center">
+              <img src="composer.png" width="80" height="80" alt="IT" />
+              <p>IT/Tech</p>
             </div>
+            <div class="text-center">
+              <img src="pona.png" width="80" height="80" alt="Healthcare" />
+              <p>Healthcare</p>
+            </div>
+            <div class="text-center">
+              <img src="education.png" width="80" height="80" alt="Education" />
+              <p>Education</p>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <!-- Job Listings Section -->
-        <div class="card">
-            <div class="card-body">
-                <h2>Latest Job Postings</h2>
-                <div id="job-list">
-                    <!-- Dynamic job listings will be loaded here -->
-                </div>
-            </div>
+      <!-- Job Listings Section -->
+      <div class="card">
+        <div class="card-body">
+          <h2>Latest Job Postings</h2>
+          <div id="job-list">
+            <!-- Dynamic job listings will be loaded here -->
+          </div>
         </div>
+      </div>
 
-        <!-- Social Icons Section -->
-        <div class="card">
-            <div class="card-body text-center">
-                <h2>Connect with Us</h2>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
+      <!-- Social Icons Section -->
+      <div class="card">
+        <div class="card-body text-center">
+          <h2>Connect with Us</h2>
+          <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="https://www.twitter.com" target="_blank"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="https://www.linkedin.com" target="_blank"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="https://www.instagram.com" target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Footer -->
     <div class="footer">
-        <p>&copy; Five as One, All Rights Reserved.</p>
+      <p>&copy; Five as One, All Rights Reserved.</p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-   <script>
-        // Fetching job data dynamically
-        document.addEventListener("DOMContentLoaded", function () {
-            fetch('/jobs')
-                .then(response => response.json())
-                .then(data => {
-                    const jobList = document.getElementById('job-list');
-                    data.forEach(job => {
-                        const jobItem = document.createElement('div');
-                        jobItem.classList.add('job-item');
-                        jobItem.innerHTML = `
+    <script>
+      // Fetching job data dynamically
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("/jobs")
+          .then((response) => response.json())
+          .then((data) => {
+            const jobList = document.getElementById("job-list");
+            data.forEach((job) => {
+              const jobItem = document.createElement("div");
+              jobItem.classList.add("job-item");
+              jobItem.innerHTML = `
                             <h3>${job.post_name}</h3>
                             <p>Company: ${job.employer}</p>
                             <p>Location: ${job.Location}</p>
                             <button class="btn btn-secondary" onclick="window.location.href='login.html';">Apply Now</button>
                         `;
-                        jobList.appendChild(jobItem);
-                    });
-                })
-                .catch(err => console.error('Error fetching jobs:', err));
-        });
+              jobList.appendChild(jobItem);
+            });
+          })
+          .catch((err) => console.error("Error fetching jobs:", err));
+      });
     </script>
-</body>
-
+  </body>
 </html>

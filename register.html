@@ -1,166 +1,197 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register Form</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f7f7f7;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #f7f7f7;
+      }
 
-        .navbar {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+      .navbar {
+        background-color: #007bff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
 
-        .navbar .navbar-brand {
-            color: white;
-            font-size: 24px;
-            text-decoration: none;
-            padding-left: 20px;
-        }
+      .navbar .navbar-brand {
+        color: white;
+        font-size: 24px;
+        text-decoration: none;
+      }
 
+      .navbar .navbar-brand img {
+        max-width: 150px;
+        height: auto;
+        transition: transform 0.3s;
+      }
+
+      .navbar .navbar-brand img:hover {
+        transform: scale(1.1);
+      }
+
+      .navbar .navbar-nav .nav-link {
+        color: white;
+        font-size: 16px;
+        padding: 10px 15px;
+        transition: background-color 0.3s;
+      }
+
+      .navbar .navbar-nav .nav-link:hover {
+        background-color: #0056b3;
+        border-radius: 5px;
+      }
+
+      .navbar .navbar-nav .nav-link.active {
+        background-color: #e9ecef;
+        color: #007bff;
+        font-weight: bold;
+        border-radius: 5px;
+      }
+
+      .form-container {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .form-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .form-container input,
+      .form-container button {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      .form-container button {
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+      }
+
+      .form-container button:hover {
+        background-color: #218838;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 56px);
+      }
+
+      @media (max-width: 768px) {
         .navbar .navbar-nav {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
+          flex-direction: column;
+          align-items: center;
         }
 
-        .navbar .navbar-nav li {
-            margin-right: 20px;
+        .navbar .navbar-nav .nav-link {
+          text-align: center;
+          padding: 8px 10px;
         }
-
-        .navbar .navbar-nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            padding: 10px;
-        }
-
-        .navbar .navbar-nav a:hover {
-            background-color: #0056b3;
-            border-radius: 5px;
-        }
-        .navbar .navbar-brand img {
-            width: 800px; /* Adjust the size of the logo */
-            height: 80px;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }.navbar .navbar-brand img {
-            transform:scale(1.05);
-        }
-
-
-        /* Registration Form */
-        .form-container {
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-            width: 50%;
-        }
-
-        .form-container h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .form-container input,
-        .form-container button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .form-container button {
-            background-color: #28a745;
-            color: #fff;
-            border: none;
-        }
-
-        .form-container button:hover {
-            background-color: #218838;
-        }
-
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: calc(100vh - 56px);
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+
+  <body>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="pwk.png" alt="Logo">
-            </a>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                </ul>
-            </div>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <img src="pwk.png" alt="Logo" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Login</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
     <!-- Registration Form -->
     <div class="container">
-        <div class="form-container">
-            <h2>Register</h2>
-            <form id="registerForm">
-                <input type="text" id="name" placeholder="Enter your name" required />
-                <input type="email" id="email" placeholder="Enter your email" required />
-                <input type="password" id="password" placeholder="Enter your password" required />
-                <button type="button" onclick="submitForm()">Submit</button>
-                Already have an account? <a href="login.html">Sign in here</a>
-            </form>
-            <p id="message"></p>
-        </div>
+      <div class="form-container">
+        <h2>Register</h2>
+        <form id="registerForm">
+          <input type="text" id="name" placeholder="Enter your name" required />
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+          />
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            required
+          />
+          <button type="button" onclick="submitForm()">Submit</button>
+          <p>Already have an account? <a href="login.html">Sign in here</a></p>
+        </form>
+        <p id="message"></p>
+      </div>
     </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        async function submitForm() {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+      async function submitForm() {
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
 
-            const response = await fetch('http://localhost:3000/register', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, email, password }),
-            });
+        const response = await fetch("http://localhost:3000/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, password }),
+        });
 
-            const result = await response.json();
-            document.getElementById('message').textContent = result.message;
+        const result = await response.json();
+        document.getElementById("message").textContent = result.message;
 
-            if (result.message === 'Registration successful!') {
-                // Redirect to login page after a short delay
-                setTimeout(() => {
-                    window.location.href = "login.html";
-                }, 2000); // 2000 milliseconds = 2 seconds
-            }
+        if (result.message === "Registration successful!") {
+          // Redirect to login page after a short delay
+          setTimeout(() => {
+            window.location.href = "login.html";
+          }, 2000); // 2000 milliseconds = 2 seconds
         }
+      }
     </script>
-
-</body>
-
+  </body>
 </html>

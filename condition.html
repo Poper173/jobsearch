@@ -1,77 +1,155 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Terms and Conditions</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
     <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: Arial, sans-serif;
+      body {
+        background-color: #f8f9fa;
+        font-family: Arial, sans-serif;
+      }
+
+      .terms-container {
+        max-width: 800px;
+        margin: 30px auto;
+        background: #ebe9e6;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: #007bff;
+      }
+
+      ul {
+        list-style-type: square;
+        padding-left: 20px;
+      }
+
+      .navbar .navbar-brand {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white;
+      }
+
+      .navbar .navbar-nav .nav-link {
+        color: white;
+        font-size: 16px;
+        padding: 10px 15px;
+        transition: background-color 0.3s;
+      }
+
+      .navbar .navbar-nav .nav-link:hover {
+        background-color: #0056b3;
+        border-radius: 5px;
+      }
+
+      .navbar .navbar-nav .nav-link.active {
+        background-color: #e9ecef;
+        color: #007bff;
+        font-weight: bold;
+        border-radius: 5px;
+      }
+
+      @media (max-width: 768px) {
+        .navbar .navbar-nav {
+          flex-direction: column;
+          align-items: center;
         }
 
-        .terms-container {
-            max-width: 800px;
-            margin: 30px auto;
-            background: #ebe9e6;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        .navbar .navbar-nav .nav-link {
+          text-align: center;
+          padding: 8px 10px;
         }
-
-        h1 {
-            color: #007bff;
-        }
-
-        ul {
-            list-style-type: square;
-            padding-left: 20px;
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">Job Search</a>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="vacancies.html">Vacancies</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-                    <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
-                    <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
-                </ul>
-            </div>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Job Search</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="vacancies.html">Vacancies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="register.html">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="feedback.html">Feedback</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
     <!-- Terms and Conditions Section -->
     <div class="terms-container">
-        <h1>Terms and Conditions</h1>
-        <p>Welcome to our website! By using our platform, you agree to the following terms and conditions:</p>
-        <ul>
-            <li><strong>Allow Advertisements:</strong> We display advertisements to support our services. By using this
-                site, you agree to allow non-intrusive advertisements.</li>
-            <li><strong>Allow Popups:</strong> Certain features of our website may require popups. Please ensure your
-                browser allows popups from our platform.</li>
-            <li><strong>Prohibited Content:</strong> Sharing or displaying nudity, inappropriate images, or any harmful,
-                illegal, or unethical content is strictly prohibited.</li>
-            <li><strong>Privacy Policy:</strong> We are committed to protecting your privacy. Your personal data will
-                not be shared without your consent, except as required by law.</li>
-        </ul>
-        <p>By continuing to use this website, you accept these terms and conditions. If you do not agree, please refrain
-            from using the platform.</p>
-        <p>Thank you for understanding!</p>
-        <div class="text-center mt-4">
-            <a href="register.html" class="btn btn-primary">Back to register</a>
-        </div>
+      <h1>Terms and Conditions</h1>
+      <p>
+        Welcome to our website! By using our platform, you agree to the
+        following terms and conditions:
+      </p>
+      <ul>
+        <li>
+          <strong>Allow Advertisements:</strong> We display advertisements to
+          support our services. By using this site, you agree to allow
+          non-intrusive advertisements.
+        </li>
+        <li>
+          <strong>Allow Popups:</strong> Certain features of our website may
+          require popups. Please ensure your browser allows popups from our
+          platform.
+        </li>
+        <li>
+          <strong>Prohibited Content:</strong> Sharing or displaying nudity,
+          inappropriate images, or any harmful, illegal, or unethical content is
+          strictly prohibited.
+        </li>
+        <li>
+          <strong>Privacy Policy:</strong> We are committed to protecting your
+          privacy. Your personal data will not be shared without your consent,
+          except as required by law.
+        </li>
+      </ul>
+      <p>
+        By continuing to use this website, you accept these terms and
+        conditions. If you do not agree, please refrain from using the platform.
+      </p>
+      <p>Thank you for understanding!</p>
+      <div class="text-center mt-4">
+        <a href="register.html" class="btn btn-primary">Back to Register</a>
+      </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-
+  </body>
 </html>

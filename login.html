@@ -16,51 +16,43 @@
 
         .navbar {
             background-color: #007bff;
-            color: white;
-            padding: 10px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .navbar .navbar-brand {
             color: white;
             font-size: 24px;
             text-decoration: none;
-            padding-left: 20px;
         }
 
-        .navbar .navbar-nav {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
+        .navbar .navbar-brand img {
+            max-width: 150px;
+            height: auto;
+            transition: transform 0.3s;
         }
 
-        .navbar .navbar-nav li {
-            margin-right: 20px;
+        .navbar .navbar-brand img:hover {
+            transform: scale(1.1);
         }
 
-        .navbar .navbar-nav a {
+        .navbar .navbar-nav .nav-link {
             color: white;
-            text-decoration: none;
             font-size: 16px;
-            padding: 10px;
+            padding: 10px 15px;
+            transition: background-color 0.3s;
         }
 
-        .navbar .navbar-nav a:hover {
+        .navbar .navbar-nav .nav-link:hover {
             background-color: #0056b3;
             border-radius: 5px;
         }
-        .navbar .navbar-brand img {
-            width: 800px; /* Adjust the size of the logo */
-            height: 80px;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }.navbar .navbar-brand img {
-            transform:scale(1.05);
-        }
 
+        .navbar .navbar-nav .nav-link.active {
+            background-color: #e9ecef;
+            color: #007bff;
+            font-weight: bold;
+            border-radius: 5px;
+        }
 
         .form-container {
             background: #fff;
@@ -100,6 +92,18 @@
             align-items: center;
             height: calc(100vh - 56px);
         }
+
+        @media (max-width: 768px) {
+            .navbar .navbar-nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .navbar .navbar-nav .nav-link {
+                text-align: center;
+                padding: 8px 10px;
+            }
+        }
     </style>
 </head>
 
@@ -107,8 +111,8 @@
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="pwk.png" alt="Logo"> 
+            <a class="navbar-brand" href="index.html">
+                <img src="pwk.png" alt="Logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -117,7 +121,8 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-
+                    <li class="nav-item"><a class="nav-link active" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
                 </ul>
             </div>
         </div>
@@ -128,8 +133,8 @@
         <div class="form-container">
             <h2>Login</h2>
             <form id="loginForm">
-                <input type="email" id="email" placeholder="Enter your email" required />
-                <input type="password" id="password" placeholder="Enter your password" required />
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <input type="password" id="password" placeholder="Enter your password" required>
                 <button type="button" onclick="loginUser()">Login</button>
                 <p>Don't have an account? <a href="register.html">Register here</a></p>
                 <p><a href="forgotpassword.html">Forgot Password?</a></p>
@@ -137,8 +142,6 @@
             <p id="message"></p>
         </div>
     </div>
-
-
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -164,7 +167,6 @@
                 messageElement.style.color = 'red';
             }
         }
-
     </script>
 </body>
 

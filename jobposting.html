@@ -1,398 +1,261 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Page</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Page - Job Postings</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+      }
 
+      .navbar {
+        background-color: #007bff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
 
-        /* Navigation Bar */
-        .navbar-nav .nav-link.active {
-            background-color: #f8f9fa;
-            color: #007bff;
-            font-weight: bold;
-            border-radius: 5px;
-        }
+      .navbar .navbar-brand {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white;
+      }
 
-        .navbar {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      .navbar .navbar-nav .nav-link {
+        color: white;
+        font-size: 16px;
+        padding: 10px 15px;
+        transition: background-color 0.3s;
+      }
 
-        .navbar .navbar-brand {
-            color: white;
-            font-size: 24px;
-            text-decoration: none;
-            padding-left: 20px;
-        }
+      .navbar .navbar-nav .nav-link:hover {
+        background-color: #0056b3;
+        border-radius: 5px;
+      }
 
+      .navbar .navbar-nav .nav-link.active {
+        background-color: #e9ecef;
+        color: #007bff;
+        font-weight: bold;
+        border-radius: 5px;
+      }
+
+      .container {
+        padding: 20px;
+      }
+
+      .section {
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        color: #333;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .form-group input[type="date"] {
+        width: auto;
+      }
+
+      .btn {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        display: inline-block;
+        margin: 10px 0;
+        cursor: pointer;
+        border-radius: 5px;
+        text-decoration: none;
+        border: none;
+      }
+
+      .btn:hover {
+        background-color: #45a049;
+      }
+
+      @media (max-width: 768px) {
         .navbar .navbar-nav {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
+          flex-direction: column;
+          align-items: center;
         }
 
-        .navbar .navbar-nav li {
-            margin-right: 20px;
+        .navbar .navbar-nav .nav-link {
+          text-align: center;
+          padding: 8px 10px;
         }
-
-        .navbar .navbar-nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            padding: 10px;
-        }
-
-        .navbar .navbar-nav a:hover {
-            background-color: #0056b3;
-            border-radius: 5px;
-        }
-
-        /* Container */
-        .container {
-            padding: 20px;
-        }
-
-        .section {
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            padding: 10px;
-        }
-
-        h2 {
-            color: #333;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-        }
-
-        .form-group input[type="date"] {
-            width: auto;
-        }
-
-        .btn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            display: inline-block;
-            margin: 10px 0;
-            cursor: pointer;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-
-        .btn:hover {
-            background-color: #45a049;
-        }
-
-        .navbar .navbar-brand img {
-            width: 800px;
-            /* Adjust the size of the logo */
-            height: 80px;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-
-        .navbar .navbar-brand img {
-            transform: scale(1.05);
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Navigation Bar -->
-    <nav class="navbar">
-        <a class="navbar-brand" href="#">
-            <img src="pwk.png" alt="Logo">
-        </a>
-        <ul class="navbar-nav">
-            <li><a href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link active" href="jobposting.html">Company Admin Pannel</a></li>
-            <li><a href="feedback.html">Feedback</a></li>
-            <li><a href="login.html">Logout</a></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Job Search</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="jobposting.html">Admin Panel</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="feedback.html">Feedback</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
 
     <div class="container">
-
-        <!-- Job Postings Section -->
-        <div class="section">
-            <h2>Job Postings Management</h2>
-            <form id="jobPostingForm">
-                <div class="form-group">
-                    <label for="postName">Post Name:</label>
-                    <input type="text" id="postName" name="postName" required>
-                </div>
-                <div class="form-group">
-                    <label for="Location">Location:</label>
-                    <input type="text" id="Location" name="Location" required>
-                </div>
-                <div class="form-group">
-                    <label for="postNumber">Post Number:</label>
-                    <input type="number" id="postNumber" name="postNumber" required>
-                </div>
-                <div class="form-group">
-                    <label for="employer">Employer:</label>
-                    <input type="text" id="employer" name="employer" required>
-                </div>
-                <div class="form-group">
-                    <label for="applicationStart">Application Start Date:</label>
-                    <input type="date" id="applicationStart" name="applicationStart" required>
-                </div>
-                <div class="form-group">
-                    <label for="applicationEnd">Application End Date:</label>
-                    <input type="date" id="applicationEnd" name="applicationEnd" required>
-                </div>
-                <div class="form-group">
-                    <label for="duties">Duties and Responsibilities:</label>
-                    <textarea id="duties" name="duties" rows="4" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="qualifications">Qualifications and Experience:</label>
-                    <textarea id="qualifications" name="qualifications" rows="4" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="salary">Salary (in $):</label>
-                    <input type="number" id="salary" name="salary" step="1" required>
-                </div>
-                <button type="submit" class="btn">Submit Job Posting</button>
-            </form>
-        </div>
-
+      <!-- Job Postings Section -->
+      <div class="section">
+        <h2>Job Postings Management</h2>
+        <form id="jobPostingForm">
+          <div class="form-group">
+            <label for="postName">Post Name:</label>
+            <input type="text" id="postName" name="postName" required />
+          </div>
+          <div class="form-group">
+            <label for="Location">Location:</label>
+            <input type="text" id="Location" name="Location" required />
+          </div>
+          <div class="form-group">
+            <label for="postNumber">Post Number:</label>
+            <input type="number" id="postNumber" name="postNumber" required />
+          </div>
+          <div class="form-group">
+            <label for="employer">Employer:</label>
+            <input type="text" id="employer" name="employer" required />
+          </div>
+          <div class="form-group">
+            <label for="applicationStart">Application Start Date:</label>
+            <input
+              type="date"
+              id="applicationStart"
+              name="applicationStart"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="applicationEnd">Application End Date:</label>
+            <input
+              type="date"
+              id="applicationEnd"
+              name="applicationEnd"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="duties">Duties and Responsibilities:</label>
+            <textarea id="duties" name="duties" rows="4" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="qualifications">Qualifications and Experience:</label>
+            <textarea
+              id="qualifications"
+              name="qualifications"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="salary">Salary (in $):</label>
+            <input type="number" id="salary" name="salary" step="1" required />
+          </div>
+          <button type="submit" class="btn">Submit Job Posting</button>
+        </form>
+      </div>
     </div>
 
     <script>
-        const dutiesTextarea = document.getElementById('duties');
+      document
+        .getElementById("jobPostingForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
 
-        // Event listener for the textarea
-        dutiesTextarea.addEventListener('keydown', function (e) {
-            // Check if the Enter key is pressed
-            if (e.key === 'Enter') {
-                e.preventDefault(); // Prevent default Enter key behavior
+          const postData = {
+            postName: document.getElementById("postName").value,
+            Location: document.getElementById("Location").value,
+            postNumber: document.getElementById("postNumber").value,
+            employer: document.getElementById("employer").value,
+            applicationStart: document.getElementById("applicationStart").value,
+            applicationEnd: document.getElementById("applicationEnd").value,
+            duties: document.getElementById("duties").value,
+            qualifications: document.getElementById("qualifications").value,
+            salary: document.getElementById("salary").value,
+          };
 
-                const lines = dutiesTextarea.value.split('\n'); // Split the text into lines
-                const lastLine = lines[lines.length - 1]; // Get the last line
-                const romanNumerals = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X']; // Add more if needed
+          try {
+            const response = await fetch("/post-job", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(postData),
+            });
 
-                let nextIndex = 0;
-
-                // Determine the next Roman numeral
-                if (lastLine.trim().length > 0) {
-                    const match = lastLine.match(/^\s*([IVXLCDM]+)\./i); // Match Roman numeral at the start
-                    if (match) {
-                        const currentRoman = match[1].toUpperCase(); // Extract current Roman numeral
-                        const currentIndex = romanNumerals.indexOf(currentRoman);
-                        if (currentIndex !== -1 && currentIndex + 1 < romanNumerals.length) {
-                            nextIndex = currentIndex + 1; // Get the next Roman numeral
-                        }
-                    }
-                }
-
-                const nextRoman = romanNumerals[nextIndex];
-                dutiesTextarea.value += `\n${nextRoman}. `; // Append the next Roman numeral
+            const result = await response.json();
+            if (response.ok) {
+              alert(result.message);
+              document.getElementById("jobPostingForm").reset();
+            } else {
+              alert(`Error: ${result.message}`);
             }
+          } catch (error) {
+            alert("Failed to submit job posting. Please try again later.");
+            console.error("Error:", error);
+          }
         });
-        const qualificationsTextarea = document.getElementById('qualifications');
-
-        // Event listener for the textarea
-        qualificationsTextarea.addEventListener('keydown', function (e) {
-            // Check if the Enter key is pressed
-            if (e.key === 'Enter') {
-                e.preventDefault(); // Prevent default Enter key behavior
-
-                const lines = qualificationsTextarea.value.split('\n'); // Split the text into lines
-                const lastLine = lines[lines.length - 1]; // Get the last line
-                const romanNumerals = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X']; // Add more if needed
-
-                let nextIndex = 0;
-
-                // Determine the next Roman numeral
-                if (lastLine.trim().length > 0) {
-                    const match = lastLine.match(/^\s*([IVXLCDM]+)\./i); // Match Roman numeral at the start
-                    if (match) {
-                        const currentRoman = match[1].toUpperCase(); // Extract current Roman numeral
-                        const currentIndex = romanNumerals.indexOf(currentRoman);
-                        if (currentIndex !== -1 && currentIndex + 1 < romanNumerals.length) {
-                            nextIndex = currentIndex + 1; // Get the next Roman numeral
-                        }
-                    }
-                }
-
-                const nextRoman = romanNumerals[nextIndex];
-                qualificationsTextarea.value += `\n${nextRoman}. `; // Append the next Roman numeral
-            }
-        });
-
-
-        document.getElementById('jobPostingForm').addEventListener('submit', async function (e) {
-            e.preventDefault();
-
-            const postData = {
-                postName: document.getElementById('postName').value,
-                Location: document.getElementById('Location').value,
-                postNumber: document.getElementById('postNumber').value,
-                employer: document.getElementById('employer').value,
-                applicationStart: document.getElementById('applicationStart').value,
-                applicationEnd: document.getElementById('applicationEnd').value,
-                duties: document.getElementById('duties').value,
-                qualifications: document.getElementById('qualifications').value,
-                salary: document.getElementById('salary').value,
-            };
-
-            try {
-                const response = await fetch('/post-job', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(postData),
-                });
-
-                const result = await response.json();
-                if (response.ok) {
-                    alert(result.message);
-                    document.getElementById('jobPostingForm').reset();
-                } else {
-                    alert(`Error: ${result.message}`);
-                }
-            } catch (error) {
-                alert('Failed to submit job posting. Please try again later.');
-                console.error('Error:', error);
-            }
-        });
-
     </script>
-    <div class="container">
-        <h2 class="mt-5">Job Applications</h2>
-        <table class="table table-bordered" id="applicationsTable">
-            <thead>
-                <tr>
-                    <th>application_id</th>
-                    <th>Fullname</th>
-                    <th>Email</th>
-                    <th>Position</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id="applicationsList">
-                <!-- Application rows will be added here dynamically -->
-            </tbody>
-        </table>
-    </div>
-
-    <script>
-        // Fetching all applications from the backend
-        async function fetchApplications() {
-            try {
-                const response = await fetch('/admin/applications');
-                const data = await response.json();
-                const applicationsList = document.getElementById('applicationsList');
-                applicationsList.innerHTML = ''; // Clear any existing rows
-
-                data.forEach(application => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${application.application_id}</td>
-                        <td>${application.fullName}</td>
-                        <td>${application.email}</td>
-                        <td>${application.position}</td>
-                        <td>
-                            <button class="btn btn-delete" onclick="deleteApplication(${application.application_id}, '${application.email}')">Delete</button>
-                        </td>
-                    `;
-                    applicationsList.appendChild(row);
-                });
-            } catch (error) {
-                console.error('Error fetching applications:', error);
-            }
-        }
-
-        // Deleting an application and sending email
-        async function deleteApplication(application_id, userEmail) {
-            const confirmDelete = confirm('Are you sure you want to delete this application?');
-            if (confirmDelete) {
-                try {
-                    // Step 1: Send a request to the backend to delete the application
-                    const deleteResponse = await fetch(`/admin/applications/${application_id}`, {
-                        method: 'DELETE',
-                    });
-
-                    const deleteResult = await deleteResponse.json();
-                    if (deleteResponse.ok) {
-                        alert(deleteResult.message);
-
-                        // Step 2: Trigger the email notification to the user
-                        await sendEmailNotification(userEmail);
-
-                        // Step 3: Refresh the applications list
-                        fetchApplications();
-                    } else {
-                        alert('Failed to delete application.');
-                    }
-                } catch (error) {
-                    console.error('Error deleting application:', error);
-                    alert('Error deleting the application. Please try again.');
-                }
-            }
-        }
-
-        // Function to send an email notification to the user
-        async function sendEmailNotification(userEmail) {
-            try {
-                const emailResponse = await fetch('/send-email', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        email: userEmail,
-                        subject: 'Your application is Disapproved',
-                        message: 'Your application is Disapproved. Please visit www.jobsearch.com to see what’s the matter.'
-                    }),
-                });
-
-                const emailResult = await emailResponse.json();
-                if (!emailResponse.ok) {
-                    alert('Failed to send email notification.');
-                    console.error('Email send error:', emailResult);
-                }
-            } catch (error) {
-                console.error('Error sending email:', error);
-            }
-        }
-
-        // Initial fetch of applications
-        fetchApplications();
-    </script>
-</body>
-
+  </body>
 </html>

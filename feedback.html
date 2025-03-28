@@ -1,161 +1,211 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Feedback - Job Search</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+      }
+
+      .feedback-container {
+        max-width: 600px;
+        margin: 30px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar .navbar-brand {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white;
+      }
+
+      .navbar .navbar-nav .nav-link {
+        color: white;
+        font-size: 16px;
+        padding: 10px 15px;
+        transition: background-color 0.3s;
+      }
+
+      .navbar .navbar-nav .nav-link:hover {
+        background-color: #0056b3;
+        border-radius: 5px;
+      }
+
+      .navbar .navbar-nav .nav-link.active {
+        background-color: #e9ecef;
+        color: #007bff;
+        font-weight: bold;
+        border-radius: 5px;
+      }
+
+      .success-message {
+        display: none;
+        margin-top: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .navbar .navbar-nav {
+          flex-direction: column;
+          align-items: center;
         }
 
-        .navbar-nav .nav-link.active {
-            background-color: #f8f9fa;
-            /* Light background color for active link */
-            color: #007bff;
-            /* Text color for active link */
-            font-weight: bold;
-            /* Bold text for active link */
+        .navbar .navbar-nav .nav-link {
+          text-align: center;
+          padding: 8px 10px;
         }
-
-        .navbar-nav .nav-link {
-            color: #fff;
-            /* Default text color for inactive links */
-        }
-
-        .feedback-container {
-            max-width: 600px;
-            margin: 30px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .success-message {
-            display: none;
-            margin-top: 20px;
-        }
-        
-        .navbar-nav .nav-link.active {
-            background-color: #f8f9fa;
-            color: #007bff;
-            font-weight: bold;
-            border-radius: 5px;
-        }
-        .navbar .navbar-brand img {
-            width: 800px; /* Adjust the size of the logo */
-            height: 80px;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }.navbar .navbar-brand img {
-            transform:scale(1.05);
-        }
-
-        
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="pwk.png" alt="Logo"> 
-            </a>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="vacancies.html">Vacancies</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="feedback.html">Feedback</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html">Logout</a></li>
-                    
-                </ul>
-            </div>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Job Search</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="vacancies.html">Vacancies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="feedback.html">Feedback</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Logout</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
     <!-- Feedback Form Section -->
     <div class="feedback-container">
-        <h2 class="text-center">We Value Your Feedback</h2>
-        <form id="feedbackForm">
-            <!-- Name Input -->
-            <div class="mb-3">
-                <label for="name" class="form-label">Full Name</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name"
-                    required>
-            </div>
-
-            <!-- Email Input -->
-            <div class="mb-3">
-                <label for="email" class="form-label">Email Address</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email"
-                    required>
-            </div>
-
-            <!-- Subject Input -->
-            <div class="mb-3">
-                <label for="subject" class="form-label">Subject</label>
-                <input type="text" class="form-control" id="subject" name="subject" placeholder="Enter the subject"
-                    required>
-            </div>
-
-            <!-- Feedback Message -->
-            <div class="mb-3">
-                <label for="message" class="form-label">Your Message</label>
-                <textarea class="form-control" id="message" name="message" rows="5"
-                    placeholder="Write your feedback here..." required></textarea>
-            </div>
-
-            <!-- Submit Button -->
-            <div class="d-grid">
-                <button type="button" class="btn btn-success" onclick="submitFeedback()">Submit Feedback</button>
-            </div>
-        </form>
-
-        <!-- Success Message -->
-        <div class="alert alert-success success-message" id="successMessage" role="alert">
-            Thank you for your feedback!
+      <h2 class="text-center">We Value Your Feedback</h2>
+      <form id="feedbackForm">
+        <!-- Name Input -->
+        <div class="mb-3">
+          <label for="name" class="form-label">Full Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            placeholder="Enter your full name"
+            required
+          />
         </div>
+
+        <!-- Email Input -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Email Address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+
+        <!-- Subject Input -->
+        <div class="mb-3">
+          <label for="subject" class="form-label">Subject</label>
+          <input
+            type="text"
+            class="form-control"
+            id="subject"
+            name="subject"
+            placeholder="Enter the subject"
+            required
+          />
+        </div>
+
+        <!-- Feedback Message -->
+        <div class="mb-3">
+          <label for="message" class="form-label">Your Message</label>
+          <textarea
+            class="form-control"
+            id="message"
+            name="message"
+            rows="5"
+            placeholder="Write your feedback here..."
+            required
+          ></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="d-grid">
+          <button
+            type="button"
+            class="btn btn-success"
+            onclick="submitFeedback()"
+          >
+            Submit Feedback
+          </button>
+        </div>
+      </form>
+
+      <!-- Success Message -->
+      <div
+        class="alert alert-success success-message"
+        id="successMessage"
+        role="alert"
+      >
+        Thank you for your feedback!
+      </div>
     </div>
 
     <script>
-        // JavaScript to handle feedback submission
-        function submitFeedback() {
-            // Perform basic validation
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const subject = document.getElementById("subject").value;
-            const message = document.getElementById("message").value;
+      // JavaScript to handle feedback submission
+      function submitFeedback() {
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const subject = document.getElementById("subject").value;
+        const message = document.getElementById("message").value;
 
-            
+        if (name && email && subject && message) {
+          const successMessage = document.getElementById("successMessage");
+          successMessage.style.display = "block";
 
-            if (name && email && subject && message) {
-                // Show the success message
-                const successMessage = document.getElementById("successMessage");
-                successMessage.style.display = "block";
+          document.getElementById("feedbackForm").reset();
 
-                // Reset the form fields
-                document.getElementById("feedbackForm").reset();
-
-            } else {
-                alert("Please fill in all fields before submitting.");
-            }
-            
-            
-                // Redirect to the home page after 5 seconds
-                setTimeout(() => {
-                    window.location.href = "index.html";
-                }, 30000); // 5000 milliseconds = 5 seconds
-            
+          // Redirect to the home page after 5 seconds
+          setTimeout(() => {
+            window.location.href = "index.html";
+          }, 5000);
+        } else {
+          alert("Please fill in all fields before submitting.");
         }
+      }
     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-
+  </body>
 </html>
